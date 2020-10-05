@@ -1,0 +1,15 @@
+def contents(path):
+    if os.path.isdir(path) == False:
+        return
+    else:
+        print(path)
+        pathList = os.listdir(path)
+        for file in pathList:
+            if os.path.isfile(Path(path, file)) == True:
+                print(file + ': ' + str(os.path.getsize(Path(path, file))) + ' bytes')
+            else:
+                print(file)
+                
+            if os.path.isdir(Path(path, file)) == True:
+                newPath = Path(path, file)
+                contents(newPath)
